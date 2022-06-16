@@ -1,0 +1,51 @@
+<div class="center border">
+    <label id="admPokemon">Nuevo Pokemon</label>
+    <form [formGroup]="formulario" class="margin-top-10" (ngSubmit)="onSubmit()">
+        <div class="center-items">
+            <div class="flex margin-rigth-50">
+                <label>Nombre:</label>
+                <input type="text" class="form-control margin-left-10" formControlName="name">
+                <span *ngIf="campoNoValido('name')" class="error">
+                    Debe especificar un nombre
+                </span>
+            </div>
+            <div class="flex">
+                <label>Ataque: 0</label>
+                <input class="slider" type="range" class="margin-left-10" min="0" max="100" formControlName="attack">{{formulario.value.attack}}
+                <span *ngIf="campoNoValido('attack')" class="error">
+                    No puede ser un valor negativo
+                </span>
+            </div>
+        </div>
+        <br>
+        <div class="center-items">
+            <div class="flex margin-rigth-50 new-pokemon">
+                <label>Imagen:</label>
+                <input type="text" class="form-control margin-left-10" placeholder="URL" formControlName="image">
+                <span *ngIf="campoNoValido('image')" class="error">
+                    Debe especificar una URL
+                </span>
+            </div>
+            <div class="flex">
+                <label>Defensa: 0</label>
+                <input class="slider" type="range" class="margin-left-10" min="0" max="100" formControlName="defense">{{formulario.value.defense}}
+                <span *ngIf="campoNoValido('defense')" class="error">
+                    No puede ser un valor negativo
+                </span>
+            </div>
+        </div>
+        <br>
+
+        <div class="center-items margin-bottom-20">
+            <button type="submit" style="width: 85px !important;"  class="margin-rigth-50">
+                <img style="width: 15px; margin-right: 5px;" src="assets/save.png">
+                Guardar
+            </button>
+            <button type="button" style="width: 85px !important;" (click)="cancelar()">
+                <img style="width: 15px; margin-right: 5px;" src="assets/cerrar.png">
+                Cancelar
+            </button>
+        </div>
+    </form>
+</div>
+

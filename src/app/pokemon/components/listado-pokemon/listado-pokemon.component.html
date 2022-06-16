@@ -1,0 +1,23 @@
+<h2 *ngIf="pokemons.length === 0">Cargando...</h2>
+<table *ngIf="pokemons.length !== 0" class="width-100">
+    <thead>
+        <th>Nombre</th>
+        <th>Imagen</th>
+        <th>Ataque</th>
+        <th>Defensa</th>
+        <th>Acciones</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let pokemon of pokemons">
+            <td>{{pokemon.name}}</td>
+            <td><img style="height: 75px;" [src]="pokemon.image"></td>
+            <td>{{pokemon.attack}}</td>
+            <td>{{pokemon.defense}}</td>
+            <td class="center" style="width: 100px;">
+                <img class="icon-button" style="margin-right: 40px;" (click)="editarPokemon(pokemon)" src="assets/edit.png">
+                <img class="icon-button" (click)="eliminarPokemon(pokemon)" src="assets/trash.png">
+               
+            </td>
+        </tr>
+    </tbody>
+</table>
