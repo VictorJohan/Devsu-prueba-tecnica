@@ -3,7 +3,10 @@
     <div class="flex" style="margin-top: 15px">
         <app-buscar-pokemon (throwPokemon)="mostrarPokemon($event)"></app-buscar-pokemon>
         <span class="spacer"></span>
-        <button type="button" (click)="nuevo()">Nuevo</button>
+        <button type="button" (click)="nuevo()">
+            <img src="assets/plus.png"  width="15px">
+            Nuevo
+        </button>
     </div>
     <br>
     <app-listado-pokemon (pokemonEliminado)="pokemonEliminado()" (pokemonSeleccionado)="catchPokemon($event)" [pokemons]="pokemons"></app-listado-pokemon>
